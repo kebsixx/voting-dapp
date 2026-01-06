@@ -1,7 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
-import { CONTRACT_ABI, CONTRACT_ADDRESS } from "./contract";
+import { CONTRACT_ABI } from "./contract";
+
+const CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
 import CandidateList from "../components/CandidateList";
 import CandidateForm from "../components/CandidateForm";
 import WalletButton from "../components/WalletButton";
@@ -133,9 +135,9 @@ export default function VotingPage() {
   return (
     <div className="min-h-screen py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        {/* Header with gradient text */}
+        {/* Header with linear text */}
         <div className="text-center mb-12 animate-fadeIn">
-          <h1 className="text-6xl font-extrabold mb-4 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+          <h1 className="text-6xl font-extrabold mb-4 bg-linear-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
             Voting DApp
           </h1>
           <p className="text-gray-300 text-lg">
@@ -157,7 +159,7 @@ export default function VotingPage() {
                 <span
                   className={`font-bold text-lg ${
                     isAdmin
-                      ? "bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent"
+                      ? "bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent"
                       : "text-white"
                   }`}>
                   {isAdmin ? "👑 Admin" : "👤 User"}
@@ -170,8 +172,8 @@ export default function VotingPage() {
                 <span
                   className={`font-bold text-lg ${
                     hasVoted
-                      ? "bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent"
-                      : "bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent"
+                      ? "bg-linear-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent"
+                      : "bg-linear-to-r from-orange-400 to-red-400 bg-clip-text text-transparent"
                   }`}>
                   {hasVoted ? "✓ Voted" : "⏳ Pending"}
                 </span>
