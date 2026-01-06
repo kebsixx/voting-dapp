@@ -1,8 +1,6 @@
 "use client";
-
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
-
 import { CONTRACT_ABI, CONTRACT_ADDRESS } from "./contract";
 
 function App() {
@@ -48,3 +46,9 @@ function App() {
 
     const contract = await getContract();
     const owner = await contract.admin();
+    // ...existing code...
+  };
+  // ...existing code...
+}
+
+export default App;
